@@ -1,6 +1,9 @@
 .box {
 	border: 3px solid black;
 	width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .box.win {
@@ -13,9 +16,12 @@
 
 .item-img {
 	width: 400px;
+	height: 400px;
+	object-fit: cover;
 }
 
 .main {
 	display: flex;
 	justify-content: center;
+	gap: 10px;
 }
