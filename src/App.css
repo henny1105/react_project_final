@@ -1,6 +1,14 @@
 .box {
-	border: 1px solid black;
+	border: 3px solid black;
 	width: 500px;
+}
+
+.box.win {
+	border: 3px solid green;
+}
+
+.box.lose {
+	border: 3px solid rgb(255, 57, 67);
 }
 
 .item-img {
