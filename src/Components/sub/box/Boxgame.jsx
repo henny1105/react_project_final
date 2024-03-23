@@ -1,5 +1,6 @@
+import './Box.css';
 import { useState } from 'react';
-import Box from './Components/sub/box/Box';
+import Box from './Box';
 
 // 1. 박스 2개 (타이틀, 사진, 결과)
 // 2. 가위 바위 보 버튼이 있다.
