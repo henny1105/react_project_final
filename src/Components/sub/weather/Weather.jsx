@@ -13,14 +13,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Weather() {
 	const [weather, setWeather] = useState(null);
-	const getCurrentLocation = () => {
-		navigator.geolocation.getCurrentPosition((position) => {
-			let lat = position.coords.latitude;
-			let lon = position.coords.longitude;
-
-			getWeatherByCurrentLocation(lat, lon);
-		});
-	};
 
 	const getWeatherByCurrentLocation = async (lat, lon) => {
 		let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=84bbf1bc16c21571bb35b7478e7b2d24&units=metric`;
@@ -34,6 +26,14 @@ function Weather() {
 	};
 
 	useEffect(() => {
+		const getCurrentLocation = () => {
+			navigator.geolocation.getCurrentPosition((position) => {
+				let lat = position.coords.latitude;
+				let lon = position.coords.longitude;
+				getWeatherByCurrentLocation(lat, lon);
+			});
+		};
+
 		getCurrentLocation();
 	}, []);
 
@@ -48,5 +48,3 @@ function Weather() {
 }
 
 export default Weather;
-
-//
