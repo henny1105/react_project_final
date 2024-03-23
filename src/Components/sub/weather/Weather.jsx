@@ -38,7 +38,7 @@ function Weather() {
 	}, []);
 
 	return (
-		<div>
+		<div className='weather_project'>
 			<div className='container'>
 				<WeatherBox weather={weather} />
 				<WeatherButton />
