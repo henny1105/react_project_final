@@ -1,14 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const WeatherButton = ({ cities, setCity }) => {
-	// setCity props 추가
+const WeatherButton = ({ cities, setCity, selectedCity }) => {
 	return (
 		<div className='button_box'>
-			{cities.map((item, index) => (
-				<Button key={index} variant='info' onClick={() => setCity(item)}>
-					{' '}
-					{item}
+			{cities.map((city, index) => (
+				<Button key={index} variant='info' className={selectedCity === city ? 'active' : ''} onClick={() => setCity(city)}>
+					{city}
 				</Button>
 			))}
 		</div>

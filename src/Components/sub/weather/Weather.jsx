@@ -9,36 +9,40 @@ function Weather() {
 	const [weather, setWeather] = useState(null);
 	const [city, setCity] = useState('');
 	const [loading, setLoading] = useState(false);
-	const cities = ['tokyo', 'seoul', 'beijing', 'sydney', 'london'];
+	const cities = ['Current Location', 'tokyo', 'seoul', 'beijing', 'sydney', 'london'];
 
-	const getWeatherByCurrentLocation = async (lat, lon) => {
-		let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=84bbf1bc16c21571bb35b7478e7b2d24&units=metric`;
-		try {
-			let response = await fetch(url);
-			let data = await response.json();
-			setWeather(data);
-			setLoading(false);
-		} catch (error) {
-			console.error(error);
-		}
+	const getWeatherByCurrentLocation = async () => {
+		setLoading(true);
+		navigator.geolocation.getCurrentPosition(async (position) => {
+			const lat = position.coords.latitude;
+			const lon = position.coords.longitude;
+			const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=84bbf1bc16c21571bb35b7478e7b2d24&units=metric`;
+			try {
+				const response = await fetch(url);
+				const data = await response.json();
+				setWeather(data);
+			} catch (error) {
+				console.error(error);
+			} finally {
+				setLoading(false);
+			}
+		});
 	};
 
 	useEffect(() => {
-		const getCurrentLocation = () => {
-			navigator.geolocation.getCurrentPosition((position) => {
-				getWeatherByCurrentLocation(position.coords.latitude, position.coords.longitude);
-			});
-		};
-
-		getCurrentLocation();
+		getWeatherByCurrentLocation();
 	}, []);
 
 	const getWeatherByCity = async (selectedCity) => {
+		if (selectedCity === 'Current Location') {
+			getWeatherByCurrentLocation();
+			return;
+		}
 		setLoading(true);
-		let url = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=84bbf1bc16c21571bb35b7478e7b2d24&units=metric`;
+		const url = `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=84bbf1bc16c21571bb35b7478e7b2d24&units=metric`;
 		try {
-			let response = await fetch(url);
-			let data = await response.json();
+			const response = await fetch(url);
+			const data = await response.json();
 			setWeather(data);
 		} catch (error) {
 			console.error(error);
@@ -48,7 +52,7 @@ function Weather() {
 	};
 
 	useEffect(() => {
-		if (city !== '') {
+		if (city) {
 			getWeatherByCity(city);
 		}
 	}, [city]);
@@ -61,7 +65,7 @@ function Weather() {
 				) : (
 					<>
 						<WeatherBox weather={weather} />
-						<WeatherButton cities={cities} setCity={setCity} />
+						<WeatherButton cities={cities} setCity={setCity} selectedCity={city} />
 					</>
 				)}
 			</div>
