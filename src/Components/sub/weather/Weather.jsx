@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import WeatherBox from './WeatherBox';
 import WeatherButton from './WeatherButton';
 import './Weather.css';
@@ -29,11 +29,7 @@ function Weather() {
 		});
 	};
 
-	useEffect(() => {
-		getWeatherByCurrentLocation();
-	}, []);
-
-	const getWeatherByCity = async (selectedCity) => {
+	const getWeatherByCity = useCallback(async (selectedCity) => {
 		if (selectedCity === 'Current Location') {
 			getWeatherByCurrentLocation();
 			return;
@@ -49,13 +45,17 @@ function Weather() {
 		} finally {
 			setLoading(false);
 		}
-	};
+	}, []);
+
+	useEffect(() => {
+		getWeatherByCurrentLocation();
+	}, []);
 
 	useEffect(() => {
 		if (city) {
 			getWeatherByCity(city);
 		}
-	}, [city]);
+	}, [city, getWeatherByCity]);
 
 	return (
 		<div className='weather_project'>
