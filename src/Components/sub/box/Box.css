@@ -1,6 +1,6 @@
 .box {
 	border: 3px solid black;
-	width: 500px;
+	width: 50rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,13 +15,13 @@
 }
 
 .item-img {
-	width: 400px;
-	height: 400px;
+	width: 40rem;
+	height: 40rem;
 	object-fit: cover;
 }
 
 .main {
 	display: flex;
 	justify-content: center;
-	gap: 10px;
+	gap: 1rem;
 }
