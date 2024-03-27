@@ -1,0 +1,22 @@
+.login_button {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 1rem;
+}
+
+.nav_section {
+	display: flex;
+	justify-content: center;
+}
+
+.menu_list {
+	display: flex;
+	gap: 4rem;
+}
+
+.menu_area {
+	display: flex;
+	justify-content: center;
+	margin-top: 3rem;
+}
