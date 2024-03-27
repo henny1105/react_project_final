@@ -19,7 +19,7 @@ import './Mall.css';
 
 const Mall = () => {
 	return (
-		<div>
+		<div className='inner'>
 			<Navbar />
 			<Routes>
 				<Route index element={<ProductAll />} />

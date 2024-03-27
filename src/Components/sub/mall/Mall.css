@@ -19,7 +19,7 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 3rem;
-	gap: 10rem;
+	gap: 7rem;
 }
 
 .search_box {
@@ -28,9 +28,15 @@
 .search_box input {
 	border: none;
 	border-bottom: 1px solid #aaa;
+	padding: 0 1rem;
 }
 .search_box svg {
 	position: absolute;
 	right: 0;
 	bottom: 1.5rem;
+}
+
+.inner {
+	max-width: 144rem;
+	margin: 0 auto;
 }
