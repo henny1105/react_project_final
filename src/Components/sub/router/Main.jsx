@@ -1,12 +1,20 @@
-import React from 'react';
+import { useState } from 'react';
 import './Homepage.css';
 import AboutPage from './AboutPage';
 import HomePage from './Homepage';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import ProductPage from './ProductPage';
 import ProductDetailPage from './ProductDetailPage';
+import LoginPage from './LoginPage';
+import UserPage from './UserPage';
 
 const Main = () => {
+	const [authenticate, setAuthenticate] = useState(false);
+
+	const PrivateRoute = ({ children }) => {
+		return authenticate ? children : <Navigate to='/router_project/login' />;
+	};
+
 	return (
 		<div>
 			<Routes>
@@ -14,6 +22,15 @@ const Main = () => {
 				<Route path='about' element={<AboutPage />} />
 				<Route path='products' element={<ProductPage />} />
 				<Route path='products/:id' element={<ProductDetailPage />} />
+				<Route path='login' element={<LoginPage />} />
+				<Route
+					path='user'
+					element={
+						<PrivateRoute>
+							<UserPage />
+						</PrivateRoute>
+					}
+				/>
 			</Routes>
 		</div>
 	);
