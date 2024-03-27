@@ -1,7 +1,26 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import ProductCard from '../../ProductCard';
 
 const ProductAll = () => {
-	return <div>상품 전체 페이지</div>;
+	const [productList, setProductList] = useState([]);
+	const getProducts = async () => {
+		let url = 'http://localhost:5000/products';
+		let response = await fetch(url);
+		let data = await response.json();
+		setProductList(data);
+	};
+
+	useEffect(() => {
+		getProducts();
+	}, []);
+
+	return (
+		<div>
+			{productList.map((product) => (
+				<ProductCard key={product.id} {...product} />
+			))}
+		</div>
+	);
 };
 
 export default ProductAll;
