@@ -22,7 +22,7 @@ const Main = () => {
 				<Route path='about' element={<AboutPage />} />
 				<Route path='products' element={<ProductPage />} />
 				<Route path='products/:id' element={<ProductDetailPage />} />
-				<Route path='login' element={<LoginPage />} />
+				<Route path='login' element={<LoginPage onLogin={setAuthenticate} />} />
 				<Route
 					path='user'
 					element={
