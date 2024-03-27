@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const AboutPage = () => {
 	const navigate = useNavigate();
 	const goToHomepage = () => {
-		navigate('/');
+		navigate('/router_project');
 	};
 	return (
 		<div>
