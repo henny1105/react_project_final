@@ -5,23 +5,23 @@ const ProductDetail = () => {
 	let { id } = useParams();
 	const [product, setProduct] = useState(null);
 
-	const getProductDetail = async () => {
-		let url = `http://localhost:5000/products/${id}`;
-		try {
-			const response = await fetch(url);
-			if (!response.ok) {
-				throw new Error('상품을 불러오는 데 실패했습니다.');
-			}
-			const data = await response.json();
-			setProduct(data);
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
 	useEffect(() => {
+		const getProductDetail = async () => {
+			let url = `http://localhost:5000/products/${id}`;
+			try {
+				const response = await fetch(url);
+				if (!response.ok) {
+					throw new Error('상품을 불러오는 데 실패했습니다.');
+				}
+				const data = await response.json();
+				setProduct(data);
+			} catch (error) {
+				console.error(error);
+			}
+		};
+
 		getProductDetail();
-	}, [id]);
+	}, [id]); // id를 종속성 배열에 포함
 
 	if (!product) {
 		return <div>로딩 중...</div>;
@@ -39,7 +39,7 @@ const ProductDetail = () => {
 			<div className='txt_box'>
 				<div className='product_title'>{product.title}</div>
 				<div className='price'>₩{formatPrice(product.price)}</div>
-				<div className='size'>{product.size}</div>
+				<div className='size'>{product.size.join(', ')}</div> {/* 사이즈 배열을 문자열로 변환 */}
 				{product.choice && <p className='choice'>Conscious Choice</p>}
 				{product.new && <p className='new_product'>신제품</p>}
 				<button>추가</button>
