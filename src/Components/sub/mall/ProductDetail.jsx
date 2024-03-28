@@ -21,14 +21,14 @@ const ProductDetail = () => {
 		};
 
 		getProductDetail();
-	}, [id]); // id를 종속성 배열에 포함
+	}, [id]);
 
 	if (!product) {
 		return <div>로딩 중...</div>;
 	}
 
 	const formatPrice = (price) => {
-		return price.toLocaleString(); // 천단위 콤마를 붙임
+		return price.toLocaleString();
 	};
 
 	return (
@@ -39,7 +39,7 @@ const ProductDetail = () => {
 			<div className='txt_box'>
 				<div className='product_title'>{product.title}</div>
 				<div className='price'>₩{formatPrice(product.price)}</div>
-				<div className='size'>{product.size.join(', ')}</div> {/* 사이즈 배열을 문자열로 변환 */}
+				<div className='size'>{product.size.join(', ')}</div>
 				{product.choice && <p className='choice'>Conscious Choice</p>}
 				{product.new && <p className='new_product'>신제품</p>}
 				<button>추가</button>
