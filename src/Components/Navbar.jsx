@@ -2,17 +2,23 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 	const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M Home', 'Sale', '지속가능성'];
 
+	const navigate = useNavigate();
+
+	const goToLogin = () => {
+		navigate('/mall_project/login');
+	};
+
 	return (
 		<div>
 			<div>
-				<div className='login_button'>
+				<div className='login_button' onClick={goToLogin}>
 					<FontAwesomeIcon icon={faUser} />
-					<Link to='/mall_project/login'>LOGIN</Link>
+					<div>LOGIN</div>
 				</div>
 			</div>
 			<div className='nav_section'>
@@ -24,8 +30,8 @@ const Navbar = () => {
 			</div>
 			<div className='menu_area'>
 				<ul className='menu_list'>
-					{menuList.map((menu) => (
-						<li>{menu}</li>
+					{menuList.map((menu, index) => (
+						<li key={menu}>{menu}</li>
 					))}
 				</ul>
 				<div className='search_box'>

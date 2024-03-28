@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import ProductAll from './ProductAll';
@@ -19,12 +19,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // 9. 상품을 검색할 수 있다.
 
 const Mall = () => {
+	const [authenticate, setAuthenticate] = useState(false); // true 로그인, false는 로그인 안됨
+	useEffect(() => {});
+
 	return (
 		<div className='inner'>
 			<Navbar />
 			<Routes>
 				<Route index element={<ProductAll />} />
-				<Route path='login' element={<Login />}></Route>
+				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />}></Route>
 				<Route path='product/:id' element={<ProductDetail />}></Route>
 			</Routes>
 		</div>
