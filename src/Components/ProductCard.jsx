@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ item }) => {
+	const navigate = useNavigate();
+	const showDetail = () => {
+		navigate(`/mall_project/product/${item.id}`);
+	};
 	return (
-		<div>
+		<div className='card' onClick={showDetail}>
 			<div className='img_box'>
 				<div className='img_wrap'>
 					<img src={item?.img} alt='product_image' />
