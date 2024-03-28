@@ -5,6 +5,7 @@ import ProductAll from './ProductAll';
 import ProductDetail from './ProductDetail';
 import Navbar from '../../Navbar';
 import './Mall.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // 1. 전체상품페이지, 로그인, 상품상세페이지
 // 1-1. 네비게이션 바
