@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import ProductAll from './ProductAll';
-import ProductDetail from './ProductDetail';
 import Navbar from '../../Navbar';
 import './Mall.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
