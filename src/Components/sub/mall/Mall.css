@@ -40,3 +40,38 @@
 	max-width: 144rem;
 	margin: 0 auto;
 }
+.container {
+	margin-top: 80rem;
+}
+
+.img_box {
+	height: 40rem;
+	margin-bottom: 2rem;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.img_box .img_wrap {
+	padding-top: 63%;
+}
+
+.img_box .img_wrap img {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	margin-bottom: 0.6rem;
+	object-fit: cover;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: all 0.6s;
+	width: 100%;
+}
+.img_box:hover img {
+	transform: scale(1.1);
+}
+.login_button a {
+	color: #000;
+	text-decoration: none;
+}
