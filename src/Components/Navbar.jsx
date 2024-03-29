@@ -1,16 +1,22 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // 로그아웃 아이콘을 위해 추가
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated, setAuthenticate }) => {
 	const menuList = ['WOMAN', 'MAN', 'KIDS', 'HOME', '향수'];
-
 	const navigate = useNavigate();
 
-	const goToLogin = () => {
-		navigate('/mall_project/login');
+	const handleAuthClick = () => {
+		if (isAuthenticated) {
+			// 로그아웃 처리
+			setAuthenticate(false);
+			navigate('/mall_project'); // 로그아웃 후 메인 페이지로 이동
+		} else {
+			// 로그인 페이지로 이동
+			navigate('/mall_project/login');
+		}
 	};
 
 	const goToMain = () => {
@@ -35,14 +41,14 @@ const Navbar = () => {
 	return (
 		<div className='top_cont'>
 			<div className='inner'>
-				<div className='login_button_box' onClick={goToLogin}>
+				<div className='login_button_box' onClick={handleAuthClick}>
 					<div className='login_button'>
-						<FontAwesomeIcon icon={faUser} />
-						<div>LOGIN</div>
+						<FontAwesomeIcon icon={isAuthenticated ? faSignOutAlt : faUser} />
+						<div>{isAuthenticated ? 'LOG OUT' : 'LOGIN'}</div>
 					</div>
 				</div>
 				<div className='nav_section' onClick={goToMain}>
-					<img width={200} src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/800px-Zara_Logo.svg.png' alt='로고' />
+					<img width={200} src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/800px-Zara_Logo.svg.png' alt='logo' />
 				</div>
 				<div className='menu_area'>
 					<ul className='menu_list'>
@@ -51,7 +57,7 @@ const Navbar = () => {
 						))}
 					</ul>
 					<div className='search_box'>
-						<input type='text' placeholder='제품명 검색' onKeyPress={search} />
+						<input type='text' placeholder='Search products' onKeyPress={search} />
 						<FontAwesomeIcon icon={faSearch} onClick={handleSearchClick} />
 					</div>
 				</div>

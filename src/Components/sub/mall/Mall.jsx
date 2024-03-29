@@ -23,8 +23,7 @@ const Mall = () => {
 
 	return (
 		<div>
-			<Navbar />
-
+			<Navbar isAuthenticated={authenticate} setAuthenticate={setAuthenticate} />
 			<Routes>
 				<Route index element={<ProductAll />} />
 				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />} />
@@ -34,5 +33,4 @@ const Mall = () => {
 		</div>
 	);
 };
-
 export default Mall;

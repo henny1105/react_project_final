@@ -17,6 +17,7 @@
 }
 .menu_list li {
 	font-size: 1.8rem;
+	cursor: pointer;
 }
 .menu_area {
 	display: flex;
@@ -42,6 +43,7 @@
 	position: absolute;
 	right: 0;
 	bottom: 1rem;
+	cursor: pointer;
 }
 
 .inner {
