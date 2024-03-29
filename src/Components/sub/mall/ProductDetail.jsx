@@ -50,8 +50,10 @@ const ProductDetail = () => {
 						</Col>
 					</div>
 					<div className='txt_box'>
-						{product?.new && <p className='new_product'>신제품</p>}
-						{product?.choice && <p className='choice'>Conscious Choice</p>}
+						<div className='top_box'>
+							{product?.new && <p className='new_product'>신제품</p>}
+							{product?.choice && <p className='choice_cont'>Conscious Choice</p>}
+						</div>
 						<div className='product_title'>{product?.title}</div>
 						<div className='price'>₩{formatPrice(product?.price)}</div>
 						<Dropdown>

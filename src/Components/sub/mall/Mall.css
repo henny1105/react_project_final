@@ -315,6 +315,10 @@
 	opacity: 0;
 	transform: translateX(100%);
 }
+.product_detail .top_box {
+	display: flex;
+	gap: 1rem;
+}
 @media screen and (max-width: 989px) {
 	.container .col-lg-3 {
 		/* border-right: none; */
@@ -377,6 +381,7 @@
 	}
 	.product_detail_page.container {
 		padding: 0 5rem;
+		justify-content: space-between;
 	}
 }
 
@@ -404,5 +409,8 @@
 	}
 	.container .col-lg-3 {
 		border-right: none;
+	}
+	.product_detail > .img_box {
+		width: 100%;
 	}
 }
