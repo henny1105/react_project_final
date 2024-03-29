@@ -41,7 +41,7 @@
 }
 .search_box svg {
 	position: absolute;
-	right: 0;
+	right: 1rem;
 	bottom: 1rem;
 	cursor: pointer;
 }
@@ -254,7 +254,67 @@
 	top: 1rem;
 	left: 1rem;
 }
-
+.btnCall {
+	display: none;
+	height: 3rem;
+	position: relative;
+	width: 3rem;
+}
+.btnCall span {
+	background: #000;
+	display: block;
+	height: 2px;
+	left: 0;
+	margin-top: -1px;
+	position: absolute;
+	text-indent: -9999px;
+	top: 50%;
+	transition: all 0.5s;
+	width: 100%;
+}
+.btnCall:after,
+.btnCall:before {
+	background: #000;
+	content: '';
+	display: block;
+	height: 2px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+.btnCall::before {
+	top: 0;
+	transition: top 0.5s 0s, transform 0.5s 0.5s;
+}
+.btnCall:after {
+	bottom: 0;
+	transition: bottom 0.5s 0s, transform 0.5s 0.5s;
+}
+.menu_area_mo_desc {
+	width: 70%;
+	height: 100vh;
+	position: fixed;
+	right: -100%;
+	z-index: 99;
+	padding: 0 1.75rem;
+	background: #fff;
+	transition: right 0.5s;
+}
+.menu_area_mo_desc.on {
+	right: 0;
+}
+.btnCall.on:before {
+	top: calc(50% - 1px);
+	transform: rotate(45deg);
+}
+.btnCall.on:after {
+	bottom: calc(50% - 1px);
+	transform: rotate(-45deg);
+}
+.btnCall.on span {
+	opacity: 0;
+	transform: translateX(100%);
+}
 @media screen and (max-width: 989px) {
 	.container .col-lg-3 {
 		/* border-right: none; */
@@ -283,9 +343,50 @@
 	.container .col-lg-3:nth-of-type(2n) {
 		border-right: none;
 	}
+	.menu_area {
+		display: none;
+	}
+	.btnCall {
+		display: block;
+		padding: 0;
+		border: none;
+		width: 2rem;
+		height: 2rem;
+	}
+	.nav_section {
+		justify-content: space-between;
+	}
+	.menu_list {
+		flex-direction: column;
+		gap: 2rem;
+		height: 100%;
+		margin-top: 4rem;
+	}
+	.login_from {
+		padding: 0 5rem;
+	}
+	.product_detail {
+		flex-direction: column;
+	}
+	.product_detail > .img_box {
+		width: 70%;
+		margin: 0 auto;
+	}
+	.product_detail button {
+		width: 100%;
+	}
+	.product_detail_page.container {
+		padding: 0 5rem;
+	}
 }
 
 @media screen and (max-width: 500px) {
+	.product_detail_page.container {
+		padding: 0 1.75rem;
+	}
+	.login_from {
+		padding: 0 1.75rem;
+	}
 	.mall_project.container {
 		padding: 0 1.75rem;
 	}

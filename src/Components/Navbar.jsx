@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // 로그아웃 아이콘을 위해 추가
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSignOutAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ isAuthenticated, setAuthenticate }) => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴 토글 상태 관리
 	const menuList = ['WOMAN', 'MAN', 'KIDS', 'HOME', '향수'];
 	const navigate = useNavigate();
 
 	const handleAuthClick = () => {
 		if (isAuthenticated) {
-			// 로그아웃 처리
 			setAuthenticate(false);
-			navigate('/mall_project'); // 로그아웃 후 메인 페이지로 이동
+			navigate('/mall_project');
 		} else {
-			// 로그인 페이지로 이동
 			navigate('/mall_project/login');
 		}
 	};
@@ -38,6 +36,10 @@ const Navbar = ({ isAuthenticated, setAuthenticate }) => {
 		}
 	};
 
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen); // 메뉴 토글 상태 업데이트
+	};
+
 	return (
 		<div className='top_cont'>
 			<div className='inner'>
@@ -49,6 +51,11 @@ const Navbar = ({ isAuthenticated, setAuthenticate }) => {
 				</div>
 				<div className='nav_section' onClick={goToMain}>
 					<img width={200} src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/800px-Zara_Logo.svg.png' alt='logo' />
+					<div className='menu_area_mo'>
+						<button className={`btnCall ${isMenuOpen ? 'on' : ''}`} onClick={toggleMenu}>
+							<span>메뉴호출</span>
+						</button>
+					</div>
 				</div>
 				<div className='menu_area'>
 					<ul className='menu_list'>
@@ -60,6 +67,17 @@ const Navbar = ({ isAuthenticated, setAuthenticate }) => {
 						<input type='text' placeholder='Search products' onKeyPress={search} />
 						<FontAwesomeIcon icon={faSearch} onClick={handleSearchClick} />
 					</div>
+				</div>
+				<div className={`menu_area_mo_desc ${isMenuOpen ? 'on' : ''}`}>
+					<div className='search_box'>
+						<input type='text' placeholder='Search products' onKeyPress={search} />
+						<FontAwesomeIcon icon={faSearch} onClick={handleSearchClick} />
+					</div>
+					<ul className='menu_list'>
+						{menuList.map((menu, index) => (
+							<li key={menu}>{menu}</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
