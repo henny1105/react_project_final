@@ -5,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-	const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M Home', 'Sale', '지속가능성'];
+	const menuList = ['WOMAN', 'MAN', 'KIDS', 'HOME', '향수'];
 
 	const navigate = useNavigate();
 	const goToLogin = () => {
@@ -17,8 +17,9 @@ const Navbar = () => {
 	}
 
 	return (
-		<div>
-			<div>
+		<div className='top_cont'>
+			<div className="inner">
+			<div className='login_button_box'>
 				<div className='login_button' onClick={goToLogin}>
 					<FontAwesomeIcon icon={faUser} />
 					<div>LOGIN</div>
@@ -26,7 +27,7 @@ const Navbar = () => {
 			</div>
 			<div className='nav_section' onClick={goToMain}>
 				<img
-					width={100}
+					width={200}
 					src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/800px-Zara_Logo.svg.png'
 					alt='로고'
 				/>
@@ -41,6 +42,7 @@ const Navbar = () => {
 					<input type='text' placeholder='제품명 검색' />
 					<FontAwesomeIcon icon={faSearch} />
 				</div>
+			</div>
 			</div>
 		</div>
 	);

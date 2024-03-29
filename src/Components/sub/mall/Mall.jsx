@@ -23,7 +23,7 @@ const Mall = () => {
 	useEffect(() => {}, []);
 
 	return (
-		<div className='inner'>
+		<div>
 			<Navbar />
 			<Routes>
 				<Route index element={<ProductAll />} />

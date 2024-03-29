@@ -18,10 +18,10 @@ const ProductAll = () => {
 
     return (
         <div>
-            <Container>
+            <Container className="mall_project">
                 <Row>
                     {productList.map((product) => (
-                        <Col lg={3} key={product.id}>
+                        <Col lg={2} key={product.id}>
                             <ProductCard item={product} />
                         </Col>
                     ))}
