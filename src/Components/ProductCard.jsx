@@ -15,14 +15,16 @@ const ProductCard = ({ item }) => {
 		<div className='card'>
 			<div className='img_box' onClick={showDetail}>
 				<div className='img_wrap'>
-					<img src={process.env.PUBLIC_URL + item?.img} alt='product_image' /> 
+					<img src={process.env.PUBLIC_URL + item?.img} alt='product_image' />
 				</div>
 			</div>
-			<div className="product_info">
-				<div className='choice_cont'>{item?.choice === true ? 'Concious Choice' : ''}</div>
+			<div className='product_info'>
+				<div className='top_box'>
+					{item?.new && <div className='new_product'>신제품</div>}
+					{item?.choice && <div className='choice_cont'>Concious Choice</div>}
+				</div>
 				<div className='product_name'>{item?.title}</div>
-				<div className='price'>₩{formatPrice(item?.price)}</div>
-				<div className='new_product'>{item?.new === true ? '신제품' : ''}</div>
+				<div className='price'>₩{item?.price && formatPrice(item.price)}</div>
 			</div>
 		</div>
 	);

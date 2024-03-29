@@ -19,16 +19,17 @@ import PrivateRoute from './route/PrivateRoute';
 // 9. 상품을 검색할 수 있다.
 
 const Mall = () => {
-	const [authenticate, setAuthenticate] = useState(false); // true 로그인, false는 로그인 안됨
-	useEffect(() => {}, []);
+	const [authenticate, setAuthenticate] = useState(false);
 
 	return (
 		<div>
 			<Navbar />
+
 			<Routes>
 				<Route index element={<ProductAll />} />
-				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />}></Route>
-				<Route path='product/:id' element={<PrivateRoute authenticate={authenticate} />}></Route>
+				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />} />
+				<Route path='product/:id' element={<PrivateRoute authenticate={authenticate} />} />
+				<Route path='/mall_project' element={<ProductAll />} />
 			</Routes>
 		</div>
 	);

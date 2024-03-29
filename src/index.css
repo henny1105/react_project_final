@@ -30,7 +30,7 @@ html {
 	}
 	&::-webkit-scrollbar-thumb {
 		border-radius: 3px;
-		background: #c0520a;
+		background: #000;
 	}
 }
 html,

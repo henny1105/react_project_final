@@ -1,165 +1,190 @@
 .login_button {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 1rem;
 }
 
 .nav_section {
-    display: flex;
-    justify-content: left;
+	display: flex;
+	justify-content: left;
 }
 
 .menu_list {
-    display: flex;
-    gap: 4rem;
-    padding: 0;
+	display: flex;
+	gap: 4rem;
+	padding: 0;
 }
-
+.menu_list li {
+	font-size: 1.8rem;
+}
 .menu_area {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    gap: 7rem;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 5rem;
+	gap: 7rem;
 }
 
 .search_box {
-    position: relative;
+	position: relative;
 }
 .search_box input {
-    border: none;
-    border-bottom: 1px solid #aaa;
-    padding: 0 1rem;
+	border: none;
+	border-bottom: 1px solid #aaa;
+	padding: 0 1rem;
+	font-size: 1.5rem;
+	height: 4rem;
 }
 .search_box input::placeholder {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 .search_box svg {
-    position: absolute;
-    right: 0;
-    bottom: 1.5rem;
+	position: absolute;
+	right: 0;
+	bottom: 1rem;
 }
 
 .inner {
-    max-width: 155rem;
-    margin: 0 auto;
+	max-width: 155rem;
+	margin: 0 auto;
+	padding: 0 5rem;
 }
 .mall_project.container {
-    margin-top: 52rem;
-    max-width: 100%; padding: 0;
+	/* margin-top: 50rem; */
+	max-width: 100%;
+	padding: 0;
+	height: auto;
 }
 .mall_project.container .row {
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
-    width: 100%;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	width: 100%;
 }
-
-.img_box {
-    height: 45rem;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    cursor: pointer;
-    border-bottom: 1px solid #000;
+.top_cont {
+	margin-bottom: 4rem;
+}
+.card .img_box {
+	height: 45rem;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+	border-bottom: 1px solid #000;
 }
 .product_info {
-    padding: 1rem;
+	padding: 1rem;
 }
 .product_info .product_name {
-    font-size: 1.45rem;
-    font-weight: bold;
+	font-size: 1.45rem;
+	font-weight: bold;
 }
 /* .img_box .img_wrap {
 	padding-top: 63%;
 } */
 
 .img_box .img_wrap img {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    margin-bottom: 0.6rem;
-    object-fit: cover;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: all 0.6s;
-    width: 100%;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	margin-bottom: 0.6rem;
+	object-fit: cover;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: all 0.6s;
+	width: 100%;
 }
 .img_box:hover img {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 .login_button div {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	display: flex;
 }
 .login_from {
-    max-width: 75rem;
-    margin: 0 auto;
-    margin-top: 10rem;
+	max-width: 75rem;
+	margin: 0 auto;
+	margin-top: 10rem;
 }
 .login_from .form-control {
-    height: 5rem;
-    font-size: 1.5rem;
+	height: 5rem;
+	font-size: 1.5rem;
 }
 .login_from .form-control::placeholder {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 .login_from .btn-danger {
-    height: 5rem;
-    font-size: 1.5rem;
-    width: 10rem;
+	height: 5rem;
+	font-size: 1.5rem;
+	width: 10rem;
 }
 .login_from .form-check-label {
-    font-size: 1.4rem;
+	font-size: 1.4rem;
 }
 .card {
-    border: none;
+	border: none;
 }
 .new_product {
-    background: #ffe214;
-    border-radius: 5px;
-    width: 5rem;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	background: #ffe214;
+	border-radius: 5px;
+	width: max-content;
+	padding: 0 1rem;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .choice_cont {
-    font-size: 1.3rem;
+	font-size: 1.3rem;
+	border: 0.5rem;
+	background: #d3d3d3;
+	border-radius: 5px;
+	width: auto;
+	padding: 0 1rem;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .container .col-lg-2 {
-    padding: 0;
-    padding-bottom: 2rem;
+	padding: 0;
+	padding-bottom: 2rem;
 	border-right: 1px solid #000;
 	border-bottom: 1px solid #000;
+	/* border-top: 1px solid #000; */
 }
 .container .col-lg-2:nth-of-type(6n) {
-    border-right: none;
+	border-right: none;
 }
 .product_detail {
-    display: flex;
-    margin-top: 4rem;
+	display: flex;
+	margin-top: 4rem;
+	gap: 4rem;
+	/* justify-content: space-between; */
 }
 .product_detail .img_box {
-    height: auto;
+	height: auto;
 }
 .product_detail .img_box:hover img {
-    transform: scale(1);
+	transform: scale(1);
 }
 .product_detail > .img_box {
-    width: 50%;
+	width: 50%;
 }
 .product_detail button {
-    width: 40rem;
-    height: 4rem;
-    background: #000;
-    color: #fff;
-    border: none;
+	width: 40rem;
+	height: 4rem;
+	background: #000;
+	color: #fff;
+	border: none;
+	font-size: 1.5rem;
 }
 .nav_section {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /* .loading_spinner {
@@ -170,12 +195,52 @@
 } */
 
 .mall_cont.container {
-    margin-top: -15rem;
+	margin-top: -15rem;
 }
 
 .login_button_box {
-    padding: 1rem 0;
+	padding: 1rem 0;
 }
 .text-muted {
-    font-size: 1.35rem;
+	font-size: 1.35rem;
+}
+.dropdown button {
+	background: transparent;
+	border: 1px solid #000;
+	color: #000;
+	font-size: 1.5rem;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+}
+.dropdown button:hover {
+	color: #fff;
+	background-color: #000;
+	border-color: #000;
+}
+.dropdown button.show {
+	color: #fff;
+	background-color: #000;
+	border-color: #000;
+}
+.dropdown .btn-success {
+	color: #fff;
+	background-color: #000;
+	border-color: #000;
+}
+
+.product_detail .product_title {
+	font-weight: bold;
+}
+.product_detail .price {
+	font-size: 1.7rem;
+}
+.product_detail .choice {
+	font-size: 1.5rem;
+}
+.product_info .top_box {
+	display: flex;
+	gap: 1rem;
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
 }
