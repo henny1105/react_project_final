@@ -12,7 +12,6 @@ const ProductAll = () => {
 		setProductList(data);
 	};
 	
-
     useEffect(() => {
         getProducts();
     }, []);

@@ -2,15 +2,16 @@
   "products": [
     {
       "id": 0,
-      "img": "https://noona-hnm.netlify.app/pattern-jacket.jpeg",
-      "title": "벨티드 트윌 코트",
-      "price": 99900,
+      "img": "/img/img01.jpg",
+      "title": "오프 숄더 텍스처 탑",
+      "description" : "턴다운 스트레이트 네크라인 탑. 오프 숄더 긴소매 디자인. 텍스처가 있는 패브릭 디테일.",
+      "price": 39900,
       "choice": true,
       "new": true,
       "size": [
-        "S",
-        "M",
-        "L"
+        "S (KR 55)",
+        "M (KR 66)",
+        "L (KR 77)"
       ]
     },
     {

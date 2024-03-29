@@ -8,10 +8,13 @@ const Navbar = () => {
 	const menuList = ['여성', 'Divided', '남성', '신생아/유아', '아동', 'H&M Home', 'Sale', '지속가능성'];
 
 	const navigate = useNavigate();
-
 	const goToLogin = () => {
 		navigate('/mall_project/login');
 	};
+
+	const goToMain = () => {
+		navigate('/mall_project');
+	}
 
 	return (
 		<div>
@@ -21,10 +24,10 @@ const Navbar = () => {
 					<div>LOGIN</div>
 				</div>
 			</div>
-			<div className='nav_section'>
+			<div className='nav_section' onClick={goToMain}>
 				<img
 					width={100}
-					src='//i.namu.wiki/i/E06gBakO-KgWDjOjktrhQoDPWqpp156itxoyaYuiZw-Akbvrb1dVdPI9O41G2M83KQPh8N1RK1Q1PU02DA2gYgfoCEzYwsiA0R4NBA82tsOwgMP5H2qp8DFZsOXCS2VFb0jlCUVVfuSmlIvcpKahSg.svg'
+					src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zara_Logo.svg/800px-Zara_Logo.svg.png'
 					alt='로고'
 				/>
 			</div>

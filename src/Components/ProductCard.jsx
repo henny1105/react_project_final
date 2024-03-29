@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
 		<div className='card'>
 			<div className='img_box' onClick={showDetail}>
 				<div className='img_wrap'>
-					<img src={item?.img} alt='product_image' />
+					<img src={process.env.PUBLIC_URL + item?.img} alt='product_image' /> 
 				</div>
 			</div>
 			<div className='choice_cont'>{item?.choice === true ? 'Concious Choice' : ''}</div>
