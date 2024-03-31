@@ -17,6 +17,10 @@ const Redux = () => {
 		dispatch({ type: 'DECREMENT', payload: { num: 1 } });
 	};
 
+	const reset = () => {
+		dispatch({ type: 'RESET' });
+	};
+
 	const login = () => {
 		dispatch({ type: 'LOGIN', payload: { id: 'hyein', password: '123' } });
 	};
@@ -33,6 +37,9 @@ const Redux = () => {
 				</button>
 				<button className='decrease' onClick={decrease}>
 					감소
+				</button>
+				<button className='reset_button' onClick={reset}>
+					Reset
 				</button>
 				<button className='login_button' onClick={login}>
 					Login

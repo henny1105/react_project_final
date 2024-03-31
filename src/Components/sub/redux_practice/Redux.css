@@ -22,3 +22,9 @@
 	background-color: #000;
 	border-color: #000;
 }
+
+.redux_box .reset_button {
+	color: #fff;
+	background-color: #868686;
+	border-color: #868686;
+}

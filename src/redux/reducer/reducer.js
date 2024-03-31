@@ -12,6 +12,8 @@ function reducer(state = initialState, action) {
 			return { ...state, count: state.count - action.payload.num };
 		case 'LOGIN':
 			return { ...state, id: action.payload.id, password: action.payload.password };
+		case 'RESET':
+			return initialState;
 		default:
 			return state;
 	}
