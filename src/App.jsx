@@ -5,7 +5,7 @@ import Weather from './Components/sub/weather/Weather';
 import MainWrap from './Components/main/mainWrap/MainWrap';
 import Main from './Components/sub/router/Main';
 import Mall from './Components/sub/mall/Mall';
-import Redux from './Components/sub/redux/Redux';
+import Redux from './Components/sub/redux_practice/Redux';
 
 function App() {
 	return (
