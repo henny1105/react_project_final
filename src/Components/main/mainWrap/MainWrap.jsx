@@ -17,6 +17,9 @@ function MainWrap() {
 				<li>
 					<Link to='/mall_project'>세번째 프로젝트 : 쇼핑몰 웹 사이트 만들기</Link>
 				</li>
+				<li>
+					<Link to='/redux_project'>리덕스 연습하기</Link>
+				</li>
 			</ul>
 		</div>
 	);
