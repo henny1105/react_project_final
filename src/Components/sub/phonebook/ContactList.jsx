@@ -7,6 +7,9 @@ const ContactList = () => {
 		<div>
 			<SearchBox />
 			<ContactItem />
+			<ContactItem />
+			<ContactItem />
+			<ContactItem />
 		</div>
 	);
 };
