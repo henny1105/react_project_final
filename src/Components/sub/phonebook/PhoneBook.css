@@ -1,5 +1,6 @@
 .title {
 	text-align: center;
+	margin-bottom: 5rem;
 }
 .phone_book_box .row {
 	width: 100%;
@@ -17,4 +18,26 @@
 }
 .phone_book_box .container .col-lg-2 {
 	border: none;
+}
+.phone_book_box input {
+	font-size: 1.5rem;
+}
+.customer_box .row {
+	align-items: center;
+}
+.customer_box .row div {
+	font-size: 1.5rem;
+}
+.phone_book_box > .container > .row {
+	gap: 5rem;
+}
+.phone_book_box > .container {
+	height: auto;
+}
+.phone_book_box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
 }
