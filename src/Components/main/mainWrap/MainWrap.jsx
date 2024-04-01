@@ -20,6 +20,9 @@ function MainWrap() {
 				<li>
 					<Link to='/redux_project'>리덕스 연습하기</Link>
 				</li>
+				<li>
+					<Link to='/redux_phone_book'>네번째 프로젝트 : 리덕스로 연락처 페이지 만들기</Link>
+				</li>
 			</ul>
 		</div>
 	);
