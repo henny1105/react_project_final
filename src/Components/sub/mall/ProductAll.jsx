@@ -21,7 +21,7 @@ const useWindowSize = () => {
 
 const ProductAll = () => {
 	const width = useWindowSize();
-	const productList = useSelector((state) => state.productList);
+	const productList = useSelector((state) => state.product.productList);
 	const [query] = useSearchParams();
 	const dispatch = useDispatch();
 
