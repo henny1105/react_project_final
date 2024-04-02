@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../../ProductCard';
 import { Container, Row, Col } from 'react-bootstrap';
+import { productAction } from './redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const useWindowSize = () => {
 	const [size, setSize] = useState([window.innerWidth]);
@@ -19,16 +21,13 @@ const useWindowSize = () => {
 
 const ProductAll = () => {
 	const width = useWindowSize();
-
-	const [productList, setProductList] = useState([]);
+	const productList = useSelector((state) => state.productList);
 	const [query] = useSearchParams();
+	const dispatch = useDispatch();
 
 	const getProducts = async () => {
 		let searchQuery = query.get('q') || '';
-		let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/?q=${searchQuery}`;
-		let response = await fetch(url);
-		let data = await response.json();
-		setProductList(data);
+		dispatch(productAction.getProducts(searchQuery));
 	};
 
 	useEffect(() => {
