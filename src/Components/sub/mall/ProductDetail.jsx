@@ -4,19 +4,18 @@ import { useParams } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
-import { productDetailAction } from './redux/actions/productDetailAction';
-
+import { productAction } from './redux/actions/productAction';
 
 const ProductDetail = () => {
 	let { id } = useParams();
 	const dispatch = useDispatch();
-	const product = useSelector((state) => state.productDetail.selectedItem); 
-	const loading = useSelector((state) => state.productDetail.loading); 
+	const product = useSelector((state) => state.productDetail.selectedItem);
+	const loading = useSelector((state) => state.productDetail.loading);
 
 	useEffect(() => {
-	  if (id) {
-		dispatch(productDetailAction.getProductDetail(id)); 
-	  }
+		if (id) {
+			dispatch(productAction.getProductDetail(id));
+		}
 	}, [dispatch, id]);
 	if (!product) {
 		return (
