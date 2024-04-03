@@ -9,18 +9,20 @@ import { productAction } from './redux/actions/productAction';
 const ProductDetail = () => {
 	let { id } = useParams();
 	const dispatch = useDispatch();
-	const product = useSelector((state) => state.productDetail.selectedItem);
-	const loading = useSelector((state) => state.productDetail.loading);
+
+	const product = useSelector((state) => state.product.selectedItem);
+	const loading = useSelector((state) => state.product.loading);
 
 	useEffect(() => {
 		if (id) {
-			dispatch(productAction.getProductDetail(id));
+			dispatch(productAction.getProduct(id));
 		}
 	}, [dispatch, id]);
-	if (!product) {
+
+	if (loading || !product) {
 		return (
 			<Container className='mall_cont'>
-				{loading ? <SyncLoader className='loading_spinner' color='rgba(204, 7, 30, 0.5)' loading={loading} size={10} aria-label='Loading Spinner' data-testid='loader' /> : ''}
+				<SyncLoader className='loading_spinner' color='rgba(204, 7, 30, 0.5)' loading={loading || !product} size={10} aria-label='Loading Spinner' data-testid='loader' />
 			</Container>
 		);
 	}

@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOutAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Navbar = ({ isAuthenticated, setAuthenticate }) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴 토글 상태 관리
-	const menuList = ['WOMAN', 'MAN', 'KIDS', 'HOME', '향수'];
+const Navbar = () => {
+	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const menuList = ['WOMAN', 'MAN', 'KIDS', 'HOME', '향수'];
 
 	const handleAuthClick = () => {
 		if (isAuthenticated) {
-			setAuthenticate(false);
+			// 디스패치를 사용하여 로그아웃 액션을 실행
+			dispatch({ type: 'LOGOUT' });
 			navigate('/mall_project');
 		} else {
 			navigate('/mall_project/login');

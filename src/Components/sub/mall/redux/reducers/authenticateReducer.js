@@ -1,15 +1,24 @@
 let initialState = {
 	id: '',
 	password: '',
-	authenticate: false,
+	isAuthenticated: false,
 };
 
 function authenticateReducer(state = initialState, action) {
-	let { type, payload } = action;
+	const { type, payload } = action;
+
 	switch (type) {
 		case 'LOGIN_SUCCESS':
-			return { ...state, id: payload.id, password: payload.password, authenticate: true };
-
+			return {
+				...state,
+				id: payload.id,
+				password: payload.password,
+				isAuthenticated: true,
+			};
+		case 'LOGOUT':
+			return {
+				...initialState,
+			};
 		default:
 			return { ...state };
 	}

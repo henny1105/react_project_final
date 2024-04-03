@@ -8,7 +8,7 @@ const Login = ({ setAuthenticate }) => {
 	const [id, setId] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
-	const dispatch = useDispatch(); 
+	const dispatch = useDispatch();
 
 	const loginUser = (event) => {
 		event.preventDefault();
