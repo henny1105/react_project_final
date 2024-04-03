@@ -1,33 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import SyncLoader from 'react-spinners/SyncLoader';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { useDispatch, useSelector } from 'react-redux';
+import { productDetailAction } from './redux/actions/productDetailAction';
+
 
 const ProductDetail = () => {
 	let { id } = useParams();
-	const [product, setProduct] = useState(null);
-	const [loading, setLoading] = useState(false);
+	const dispatch = useDispatch();
+	const product = useSelector((state) => state.productDetail.selectedItem); // 상태 경로 수정
+	const loading = useSelector((state) => state.productDetail.loading); // 로딩 상태를 관리해야 한다면 초기 상태에 추가
 
 	useEffect(() => {
-		const getProductDetail = async () => {
-			setLoading(true);
-			let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/${id}`;
-			try {
-				const response = await fetch(url);
-				if (!response.ok) {
-					throw new Error('상품을 불러오는 데 실패했습니다.');
-				}
-				const data = await response.json();
-				setProduct(data);
-			} catch (error) {
-				console.error(error);
-			}
-		};
-
-		getProductDetail();
-	}, [id]);
-
+	  if (id) {
+		dispatch(productDetailAction.getProductDetail(id)); // 수정된 부분
+	  }
+	}, [dispatch, id]);
 	if (!product) {
 		return (
 			<Container className='mall_cont'>

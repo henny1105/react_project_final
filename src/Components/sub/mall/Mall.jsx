@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import ProductAll from './ProductAll';
@@ -18,16 +17,30 @@ import PrivateRoute from './route/PrivateRoute';
 // 8. 로그인을 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다.
 // 9. 상품을 검색할 수 있다.
 
-const Mall = () => {
-	const [authenticate, setAuthenticate] = useState(false);
+// const Mall = () => {
+// 	const [authenticate, setAuthenticate] = useState(false);
 
+// 	return (
+// 		<div>
+// 			<Navbar isAuthenticated={authenticate} setAuthenticate={setAuthenticate} />
+// 			<Routes>
+// 				<Route index element={<ProductAll />} />
+// 				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />} />
+// 				<Route path='product/:id' element={<PrivateRoute authenticate={authenticate} />} />
+// 				<Route path='/mall_project' element={<ProductAll />} />
+// 			</Routes>
+// 		</div>
+// 	);
+// };
+
+const Mall = () => {
 	return (
 		<div>
-			<Navbar isAuthenticated={authenticate} setAuthenticate={setAuthenticate} />
+			<Navbar />
 			<Routes>
 				<Route index element={<ProductAll />} />
-				<Route path='login' element={<Login setAuthenticate={setAuthenticate} />} />
-				<Route path='product/:id' element={<PrivateRoute authenticate={authenticate} />} />
+				<Route path='login' element={<Login />} />
+				<Route path='product/:id' element={<PrivateRoute />} />
 				<Route path='/mall_project' element={<ProductAll />} />
 			</Routes>
 		</div>

@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authenticateAction } from './redux/actions/authenciateAction';
+import { authenticateAction } from './redux/actions/authenticateAction';
 
 const Login = ({ setAuthenticate }) => {
 	const [id, setId] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
-	const dispatch = useDispatch(); // 수정됨
+	const dispatch = useDispatch(); 
 
 	const loginUser = (event) => {
 		event.preventDefault();

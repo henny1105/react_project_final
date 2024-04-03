@@ -1,6 +1,6 @@
 function login(id, password) {
 	return (dispatch, getState) => {
-		dispatch({ type: 'LOGIN_SUCESS', payload: { id, password } });
+		dispatch({ type: 'LOGIN_SUCCESS', payload: { id, password } });
 	};
 }
 
