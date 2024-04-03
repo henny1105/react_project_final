@@ -10,12 +10,12 @@ import { productDetailAction } from './redux/actions/productDetailAction';
 const ProductDetail = () => {
 	let { id } = useParams();
 	const dispatch = useDispatch();
-	const product = useSelector((state) => state.productDetail.selectedItem); // 상태 경로 수정
-	const loading = useSelector((state) => state.productDetail.loading); // 로딩 상태를 관리해야 한다면 초기 상태에 추가
+	const product = useSelector((state) => state.productDetail.selectedItem); 
+	const loading = useSelector((state) => state.productDetail.loading); 
 
 	useEffect(() => {
 	  if (id) {
-		dispatch(productDetailAction.getProductDetail(id)); // 수정된 부분
+		dispatch(productDetailAction.getProductDetail(id)); 
 	  }
 	}, [dispatch, id]);
 	if (!product) {
