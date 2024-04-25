@@ -1,25 +1,28 @@
-function getProducts(searchQuery) {
-	return async (dispatch) => {
-		let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/?q=${searchQuery}`;
-		let response = await fetch(url);
-		let data = await response.json();
+// import { productActions } from '../reducers/productSlice';
 
-		dispatch({ type: 'GET_PRODUCT_SUCCESS', payload: { data } });
-	};
-}
+// function getProducts(searchQuery) {
+// 	return async (dispatch) => {
+// 		let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/?q=${searchQuery}`;
+// 		let response = await fetch(url);
+// 		let data = await response.json();
 
-function getProduct(id) {
-	return async (dispatch) => {
-		dispatch({ type: 'GET_PRODUCT_DETAIL_START' });
-		try {
-			let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/${id}`;
-			let response = await fetch(url);
-			let data = await response.json();
-			dispatch({ type: 'GET_SINGLE_PRODUCT_SUCCESS', payload: { data } });
-		} catch (error) {
-			dispatch({ type: 'GET_PRODUCT_DETAIL_FAILURE', payload: error });
-		}
-	};
-}
+// 		// dispatch({ type: 'GET_PRODUCT_SUCCESS', payload: { data } });
+// 		dispatch(productActions.getAllProduct({ data }));
+// 	};
+// }
 
-export const productAction = { getProducts, getProduct };
+// function getPorductDetail(id) {
+// 	return async (dispatch) => {
+// 		dispatch({ type: 'GET_PRODUCT_DETAIL_START' });
+// 		try {
+// 			let url = `https://my-json-server.typicode.com/henny1105/react_project_final/products/${id}`;
+// 			let response = await fetch(url);
+// 			let data = await response.json();
+// 			dispatch({ type: 'GET_SINGLE_PRODUCT_SUCCESS', payload: { data } });
+// 		} catch (error) {
+// 			dispatch({ type: 'GET_PRODUCT_DETAIL_FAILURE', payload: error });
+// 		}
+// 	};
+// }
+
+// export const productAction = { getPorductDetail };
