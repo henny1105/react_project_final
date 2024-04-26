@@ -3,7 +3,7 @@ let initialState = {
 	filteredContactList: [],
 };
 
-function reducer(state = initialState, action) {
+function phoneReducer(state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
 		case 'ADD_CONTACT':
@@ -29,4 +29,4 @@ function reducer(state = initialState, action) {
 	}
 }
 
-export default reducer;
+export default phoneReducer;

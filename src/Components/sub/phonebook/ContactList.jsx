@@ -4,7 +4,7 @@ import ContactItem from './ContactItem';
 import { useSelector } from 'react-redux';
 
 const ContactList = () => {
-	const contactList = useSelector((state) => state.filteredContactList);
+	const contactList = useSelector((state) => state.phonebook.filteredContactList);
 	return (
 		<div>
 			<SearchBox />

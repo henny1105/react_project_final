@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
 	const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+	console.log("isAuthenticated " + isAuthenticated)
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
