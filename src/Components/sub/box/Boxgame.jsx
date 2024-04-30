@@ -1,5 +1,5 @@
 import './Box.css';
-import { useState } from 'react';
+import React, { useReducer } from 'react';
 import Box from './Box';
 
 // 1. 박스 2개 (타이틀, 사진, 결과)
@@ -9,7 +9,7 @@ import Box from './Box';
 // 5. 3번 4번의 결과를 가지고 누가 이겼는지 승패를 따진다.
 // 6. 승패결과에 따라 테두리 색이 바뀐다. (이기면 초록, 지면 빨강, 비기면 검정색)
 
-const choice = {
+const choices = {
 	rock: {
 		name: 'Rock',
 		img: 'https://i.namu.wiki/i/EbHl4I2dCr3aoC7AFjMYv7zBAFQTE0Cr0-r2XiIKLakxARH3BY9eonE3AZ2_ctET_2vpLI-piN4F224wAUdyyQ.webp',
@@ -24,41 +24,64 @@ const choice = {
 	},
 };
 
+const initialState = {
+	userSelect: null,
+	computerSelect: null,
+	result: '',
+};
+
+function reducer(state, action) {
+	switch (action.type) {
+		case 'PLAY':
+			const { userChoice, computerChoice, result } = action.payload;
+			return {
+				...state,
+				userSelect: userChoice,
+				computerSelect: computerChoice,
+				result,
+			};
+		default:
+			return state;
+	}
+}
+
+function judgement(user, computer) {
+	if (user.name === computer.name) {
+		return 'tie';
+	} else if ((user.name === 'Rock' && computer.name === 'Scissors') || (user.name === 'Scissors' && computer.name === 'Paper') || (user.name === 'Paper' && computer.name === 'Rock')) {
+		return 'win';
+	}
+	return 'lose';
+}
+
+function randomChoice() {
+	const choicesKeys = Object.keys(choices);
+	const randomIndex = Math.floor(Math.random() * choicesKeys.length);
+	return choices[choicesKeys[randomIndex]];
+}
+
 function App() {
-	const [userSelect, setUserSelect] = useState(null);
-	const [computerSelect, setcomputerSelect] = useState(null);
-	const [result, setResult] = useState('');
+	const [state, dispatch] = useReducer(reducer, initialState);
+
 	const play = (userChoice) => {
-		setUserSelect(choice[userChoice]);
-		let computerChoice = randomChoice();
-		setcomputerSelect(computerChoice);
-		setResult(judgement(choice[userChoice], computerChoice));
+		const computerChoice = randomChoice();
+		const result = judgement(choices[userChoice], computerChoice);
+		dispatch({
+			type: 'PLAY',
+			payload: { userChoice: choices[userChoice], computerChoice, result },
+		});
 	};
 
-	const judgement = (user, computer) => {
-		if (user.name === computer.name) {
-			return 'tie';
-		} else if (user.name === 'Rock') return computer.name === 'Scissors' ? 'win' : 'lose';
-		else if (user.name === 'Scissors') return computer.name === 'Paper' ? 'win' : 'lose';
-		else if (user.name === 'Paper') return computer === 'Rock' ? 'win' : 'lose';
-	};
-
-	const randomChoice = () => {
-		let itemArray = Object.keys(choice); // 객체에 키 값만 뽑아서 array로 만들어주는 함수
-		let randomItem = Math.floor(Math.random() * itemArray.length); // 0부터 1 사이의 랜덤한 값을 반환
-		let final = itemArray[randomItem];
-		return choice[final];
-	};
 	return (
 		<div>
 			<div className='main'>
-				<Box title='You' item={userSelect} result={result} />
-				<Box title='Computer' item={computerSelect} result={result} />
+				<Box title='You' item={state.userSelect} result={state.result} />
+				<Box title='Computer' item={state.computerSelect} result={state.result} />
 			</div>
 			<div className='main'>
-				<button onClick={() => play('scissors')}>가위</button>
-				<button onClick={() => play('rock')}>바위</button>
-				<button onClick={() => play('paper')}>보</button>
+				<button onClick={() => play('scissors')}>Scissors</button>
+				<button onClick={() => play('rock')}>Rock</button>
+				<button onClick={() => play('paper')}>Paper</button>
 			</div>
 		</div>
 	);
