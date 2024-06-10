@@ -1,11 +1,14 @@
 .box {
 	border: 1px solid #000;
 	width: 50rem;
+	height: 60rem;
 	border-radius: 1rem;
 	padding: 3rem;
 }
 .box .item-img {
 	width: 40rem;
+	height: 40rem;
+	object-fit: cover;
 }
 .main {
 	display: flex;
