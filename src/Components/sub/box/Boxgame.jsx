@@ -1,6 +1,6 @@
 import './Box.css';
-import React, { useReducer } from 'react';
 import Box from './Box';
+import { useState } from 'react';
 
 // 1. 박스 2개 (타이틀, 사진, 결과)
 // 2. 가위 바위 보 버튼이 있다.
@@ -25,14 +25,15 @@ const choice = {
 };
 
 function Boxgame() {
+	const [useSelect, setUserSelect] = useState(null);
 	const play = (userChoice) => {
-		console.log('select', userChoice);
+		setUserSelect(choice[userChoice]);
 	};
 	return (
 		<div className='box_game'>
 			<div className='main'>
-				<Box title='You' />
-				<Box title='Computer' />
+				<Box title='You' item={useSelect} />
+				{/* <Box title='Computer' /> */}
 			</div>
 			<div className='main'>
 				<button onClick={() => play('scissors')}>가위</button>
