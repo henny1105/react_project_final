@@ -4,6 +4,11 @@
 	height: 60rem;
 	border-radius: 1rem;
 	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	background: #fff;
 }
 .box .item-img {
 	width: 40rem;
@@ -18,4 +23,34 @@
 }
 .box_game {
 	height: 100vh;
+	background: url('https://mblogthumb-phinf.pstatic.net/MjAyMzAxMDRfMTk0/MDAxNjcyODE1MTI4MjY2.X5IXamMxH6dTHkDzPgAYTlNNb-cC_G5Z7MKY3vIdh-4g.yC2efGjcyFRJz3XFlcg_rv-4PQ_32kNjK5aqVdJ_3ewg.PNG.shineeduboo/Y2k_10801920.png?type=w800')
+		no-repeat center center/cover;
+}
+.main_all {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	gap: 2rem;
+}
+.button {
+	background: #000;
+	color: #fff;
+	border: none;
+	padding: 1rem 2rem;
+	border-radius: 1rem;
+}
+.win {
+	border: 5px solid #ff57bb;
+}
+.lose {
+	border: 5px solid #42bfdd;
+}
+.draw {
+	border: 5px solid #f7b500;
+}
+.box h2 {
+	font-size: 3rem;
 }

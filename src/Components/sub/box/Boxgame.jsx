@@ -27,17 +27,32 @@ const choice = {
 function Boxgame() {
 	const [useSelect, setUserSelect] = useState(null);
 	const [compuserSelect, setCompuserSelect] = useState(null);
+	const [result, setResult] = useState('');
+
 	const play = (userChoice) => {
 		setUserSelect(choice[userChoice]);
 
 		let computerChoice = randomChoice();
 		setCompuserSelect(computerChoice);
+
+		setResult(judgement(choice[userChoice], computerChoice));
+	};
+
+	const judgement = (user, computer) => {
+		if (user.name === computer.name) {
+			return 'draw';
+		} else if (user.name === 'Rock') {
+			return computer.name === 'scissors' ? 'win' : 'lose';
+		} else if (user.name === 'scissors') {
+			return computer.name === 'paper' ? 'win' : 'lose';
+		} else if (user.name === 'paper') {
+			return computer.name === 'rock' ? 'win' : 'lose';
+		}
 	};
 
 	const randomChoice = () => {
 		let itemArray = Object.keys(choice); // ['rock', 'scissors', 'paper']
 		// 객체의 키값만 뽑아서 array로 만들어주는 함수
-		console.log('itemArray', itemArray);
 		let randomItem = Math.floor(Math.random() * itemArray.length);
 		let final = itemArray[randomItem];
 		return choice[final];
@@ -48,14 +63,22 @@ function Boxgame() {
 
 	return (
 		<div className='box_game'>
-			<div className='main'>
-				<Box title='You' item={useSelect} />
-				<Box title='Computer' item={compuserSelect} />
-			</div>
-			<div className='main'>
-				<button onClick={() => play('scissors')}>가위</button>
-				<button onClick={() => play('rock')}>바위</button>
-				<button onClick={() => play('paper')}>보</button>
+			<div className='main_all'>
+				<div className='main'>
+					<Box title='You' item={useSelect} result={result} />
+					<Box title='Computer' item={compuserSelect} result={result} />
+				</div>
+				<div className='main'>
+					<button className='button' onClick={() => play('scissors')}>
+						가위
+					</button>
+					<button className='button' onClick={() => play('rock')}>
+						바위
+					</button>
+					<button className='button' onClick={() => play('paper')}>
+						보
+					</button>
+				</div>
 			</div>
 		</div>
 	);
