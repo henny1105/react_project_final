@@ -1,27 +1,18 @@
 .box {
-	border: 3px solid black;
+	border: 1px solid #000;
 	width: 50rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	border-radius: 1rem;
+	padding: 3rem;
 }
-
-.box.win {
-	border: 3px solid green;
-}
-
-.box.lose {
-	border: 3px solid rgb(255, 57, 67);
-}
-
-.item-img {
+.box .item-img {
 	width: 40rem;
-	height: 40rem;
-	object-fit: cover;
 }
-
 .main {
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	gap: 1rem;
+	gap: 2rem;
+}
+.box_game {
+	height: 100vh;
 }

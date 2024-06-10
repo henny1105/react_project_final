@@ -9,82 +9,46 @@ import Box from './Box';
 // 5. 3번 4번의 결과를 가지고 누가 이겼는지 승패를 따진다.
 // 6. 승패결과에 따라 테두리 색이 바뀐다. (이기면 초록, 지면 빨강, 비기면 검정색)
 
-const choices = {
+const choice = {
 	rock: {
 		name: 'Rock',
-		img: 'https://i.namu.wiki/i/EbHl4I2dCr3aoC7AFjMYv7zBAFQTE0Cr0-r2XiIKLakxARH3BY9eonE3AZ2_ctET_2vpLI-piN4F224wAUdyyQ.webp',
+		img: 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day-1200x834.jpg',
 	},
 	scissors: {
-		name: 'Scissors',
-		img: 'https://img.animalplanet.co.kr/news/2020/05/20/700/al43zzl8j3o72bkbux29.jpg',
+		name: 'scissors',
+		img: 'https://i5.walmartimages.com/seo/PLUS-Fit-Cut-Curve-Sissors-Micro-Serrated-Blade-Green_aa4cbb2c-3501-4293-b363-5194ec5755b4.69fa6b5f5aae30e7e5e97fa2e520f4ae.jpeg',
 	},
 	paper: {
-		name: 'Paper',
-		img: 'https://pbs.twimg.com/media/CXuloe2UQAAdoMJ.jpg',
+		name: 'paper',
+		img: 'https://img.freepik.com/free-photo/design-space-paper-textured-background_53876-42312.jpg?size=626&ext=jpg&ga=GA1.1.2116175301.1717545600&semt=ais_user',
 	},
 };
 
-const initialState = {
-	userSelect: null,
-	computerSelect: null,
-	result: '',
-};
-
-function reducer(state, action) {
-	switch (action.type) {
-		case 'PLAY':
-			const { userChoice, computerChoice, result } = action.payload;
-			return {
-				...state,
-				userSelect: userChoice,
-				computerSelect: computerChoice,
-				result,
-			};
-		default:
-			return state;
-	}
-}
-
-function judgement(user, computer) {
-	if (user.name === computer.name) {
-		return 'tie';
-	} else if ((user.name === 'Rock' && computer.name === 'Scissors') || (user.name === 'Scissors' && computer.name === 'Paper') || (user.name === 'Paper' && computer.name === 'Rock')) {
-		return 'win';
-	}
-	return 'lose';
-}
-
-function randomChoice() {
-	const choicesKeys = Object.keys(choices);
-	const randomIndex = Math.floor(Math.random() * choicesKeys.length);
-	return choices[choicesKeys[randomIndex]];
-}
-
-function App() {
-	const [state, dispatch] = useReducer(reducer, initialState);
-
+function Boxgame() {
 	const play = (userChoice) => {
-		const computerChoice = randomChoice();
-		const result = judgement(choices[userChoice], computerChoice);
-		dispatch({
-			type: 'PLAY',
-			payload: { userChoice: choices[userChoice], computerChoice, result },
-		});
+		console.log('select', userChoice);
 	};
-
 	return (
-		<div>
+		<div className='box_game'>
 			<div className='main'>
-				<Box title='You' item={state.userSelect} result={state.result} />
-				<Box title='Computer' item={state.computerSelect} result={state.result} />
+				<Box title='You' />
+				<Box title='Computer' />
 			</div>
 			<div className='main'>
-				<button onClick={() => play('scissors')}>Scissors</button>
-				<button onClick={() => play('rock')}>Rock</button>
-				<button onClick={() => play('paper')}>Paper</button>
+				<button onClick={() => play('scissors')}>가위</button>
+				<button onClick={() => play('rock')}>바위</button>
+				<button onClick={() => play('paper')}>보</button>
 			</div>
 		</div>
 	);
 }
 
-export default App;
+export default Boxgame;
+
+// 1. 함수 즉시 실행
+// onClick={play('scissors')}와 같이 작성하면 컴포넌트가 랜더링될 때
+// play('scissors')가 즉시 실행되고, 그 반환 값이 onClick에 할당됨
+
+// 2. 함수 참조 전달
+// onClick={() => play('scissors')}는 함수 참조를 전달
+// 클릭 이벤트가 발생할 때, 이 익명 함수가 실행되고, 그 안에서 play('scissors')가 호출
